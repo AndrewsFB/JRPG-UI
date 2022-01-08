@@ -1,0 +1,108 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scenes/character_selection.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/background_sub_menu_itens.png" type="Texture" id=2]
+[ext_resource path="res://src/sub_menu_items.gd" type="Script" id=3]
+[ext_resource path="res://fonts/joystix monospace.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.329412, 0.823529, 0.823529, 1 )
+draw_center = false
+border_width_bottom = 2
+border_color = Color( 0.329412, 0.823529, 0.823529, 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 36
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 32
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 4 )
+
+[node name="SubMenu" type="Control"]
+pause_mode = 2
+margin_right = 1620.0
+margin_bottom = 800.0
+rect_min_size = Vector2( 1620, 800 )
+rect_pivot_offset = Vector2( 810, 400 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="TextureRect" parent="."]
+use_parent_material = true
+margin_right = 800.0
+margin_bottom = 800.0
+grow_horizontal = 0
+grow_vertical = 2
+rect_pivot_offset = Vector2( 400, 400 )
+size_flags_horizontal = 2
+texture = ExtResource( 2 )
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="Background"]
+margin_left = 20.0
+margin_right = 780.0
+margin_bottom = 53.0
+custom_styles/normal = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.329412, 0.823529, 0.823529, 1 )
+text = "Itens"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VScrollBar" type="ScrollContainer" parent="Background"]
+margin_left = 17.755
+margin_top = 70.0
+margin_right = 795.755
+margin_bottom = 770.0
+follow_focus = true
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/VScrollBar"]
+
+[node name="ItemName" type="Label" parent="."]
+margin_left = 820.0
+margin_right = 1340.0
+margin_bottom = 39.0
+custom_fonts/font = SubResource( 3 )
+text = "Descrição"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemDescription" type="Label" parent="."]
+margin_left = 820.0
+margin_top = 70.0
+margin_right = 1340.0
+margin_bottom = 470.0
+custom_fonts/font = SubResource( 4 )
+text = "Descrição"
+align = 2
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CharSelection" parent="." instance=ExtResource( 1 )]
+anchor_left = 0.725
+anchor_top = 0.681
+anchor_right = 0.725
+anchor_bottom = 0.681
+margin_right = 450.0
+margin_bottom = 140.0
